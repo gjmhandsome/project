@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<canvas id="canvas" width="1000px" height="1000px"></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas = document.getElementById('canvas');
+		var c = canvas.getContext('2d');
+		var draw = function() {
+			canvas.width = canvas.width;
+			drawLines();
+			drawPoints();
+		}
+		var drawPoints = function() {
+			for (var i = 0; i < points.length; i++) {
+				c.beginPath();
+				c.arc(points[i].x, points[i].y, points[i].r, 0, 2 * Math.PI, false);
+				c.fillStyle = "cadetblue";
+				c.fill();
+				c.closePath();
+			}
+		}
+		var drawLines = function() {
+//			for (var i = 0; i < points.length; i++) {
+//				for (var j = 1; j < points.length - 1; j++) {
+//					c.beginPath();
+//					c.moveTo(points[i].x, points[i].y);
+//					c.lineTo(points[j].x, points[j].y);
+//					c.stroke();
+//					c.strokeStyle = "black";
+//					c.closePath();
+//				}
+//			}
+			for (var i = 0; i < points.length; i++) {
+				c.beginPath();
+				if(i == points.length -1 ) {
+					c.moveTo(points[i].x, points[i].y);
+					c.lineTo(points[0].x, points[0].y);
+					c.stroke();
+					c.strokeStyle = "black";
+					c.closePath();
+					break;
+				}
+				c.moveTo(points[i].x, points[i].y);
+				c.lineTo(points[i + 1].x, points[i + 1].y);
+				c.stroke();
+				c.strokeStyle = "black";
+				c.closePath();
+			}
+		}
+		var v = 1;
+			var Point = function() {
+				this.x = parseInt(Math.random() * canvas.width);
+				this.y = parseInt(Math.random() * canvas.height);
+				this.toX = parseInt(Math.random() * canvas.width);
+				this.toY = parseInt(Math.random() * canvas.height);
+				this.r = Math.random() * 10 + 5;
+			}
+		var points = [];
+		for (var i = 0; i < 10; i++) {
+			points.push(new Point());
+		}
+		setInterval(function() {
+			//			if(((x < toX + 1)||(x > toX -1)) && ((y < toY + 1)||(y > toY -1))){
+			//				toX = Math.random() * 500;
+			//				toY = Math.random() * 500;
+			//			}
+			for (var i = 0; i < points.length; i++) {
+				if (points[i].x < points[i].toX) {
+					points[i].x += v;
+				} else if (points[i].x > points[i].toX) {
+					points[i].x -= v;
+				}
+				if (points[i].y < points[i].toY) {
+					points[i].y += v;
+				} else if (points[i].y > points[i].toY) {
+					points[i].y -= v;
+				}
+				if (points[i].x == points[i].toX && points[i].y == points[i].toY) {
+					points[i].toX = parseInt(Math.random() * 500);
+					points[i].toY = parseInt(Math.random() * 500);
+				}
+				//			console.log(x, y)
+				draw();
+			}
+		}, 17)
+	</script>
+</html>

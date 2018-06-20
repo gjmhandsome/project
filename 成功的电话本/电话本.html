@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">-->
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+		<style type="text/css">
+			html,
+			body {
+				width: 100%;
+				height: 100%;
+			}
+			
+			.loading {
+				width: 100%;
+				height: 100%;
+				position: fixed;
+				top: 0px;
+				left: 0px;
+				background-color: white;
+				z-index: 10000;
+			}
+			
+			.loading img {
+				width: 50px;
+				margin: 0px auto;
+				margin-top: 50px;
+				display: block;
+			}
+			
+			.load-more {
+				width: 100%;
+			}
+			
+			.load-more img {
+				display: block;
+				margin: 0px auto;
+			}
+		</style>
+		<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css" />
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+					<a class="navbar-brand" href="#">电话本</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+					<form class="navbar-form navbar-left">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" id="search-input">
+						</div>
+						<button type="submit" class="btn btn-default">Submit</button>
+					</form>
+					<ul class="nav navbar-nav navbar-right">
+						<li id="loginLi">
+							<a href="#" data-toggle="modal" data-target="#loginModal"  >登录</a>
+						</li>
+						<li id="quit">
+							<a href="#" data-toggle="modal" >注销</a>
+						</li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+
+		<div class="loading">
+			<img src="img/5-121204193R0-50.gif" />
+		</div>
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12" id="content-box" style="display: none;">
+
+					<table id="content-table" class="table 	">
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<!--登录框-->
+		<div class="modal fade" tabindex="-1" role="dialog" id="loginModal">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">登录</h4>
+					</div>
+					<div class="modal-body">
+						<form>
+							<div class="form-group">
+								<label for="username">帐号</label>
+								<input type="text" class="form-control" id="username" placeholder="请输入你的帐号">
+							</div>
+							<div class="form-group">
+								<label for="password">密码</label>
+								<input type="password" class="form-control" id="password" placeholder="密码">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-default" id="loginRes">重置</button>
+						<button type="button" class="btn btn-primary" id="loginBtn">登录</button>
+					</div>
+				</div>
+				<!-- /.modal-content -->
+			</div>
+			<!-- /.modal-dialog -->
+		</div>
+		<!-- /.modal -->
+
+	</body>
+	<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>
+	<script src="bootstrap-3.3.7-dist/js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		
+		var App = {
+			login: function() {
+				var un = $('#username').val(),
+					pw = $('#password').val();
+				$.ajax({
+					type: "post",
+					url: 'te.json',
+					data: {},
+					success: function(e) {
+						$('#username').val('');
+						$('#password').val('');
+						$('#loginModal').modal('hide');
+						
+					},
+					error: function() {
+						$('#password').val('');
+						$('#password').css({
+							'border': 'solid red 1px'
+						});
+						alert('登录失败');
+					}
+				})
+			},
+			register: '',
+			add: '',
+			remove: '',
+			search: '',
+			online : function(id){
+				if(id) {
+					setCookie('id',id,1);
+				}
+				$('#loginLi').addClass('hide');
+				$('#quit').removeClass('hide');
+			},
+			outline : function(){
+				setCookie('id','',-1);
+				$('#quit').addClass('hide');
+				$('#loginLi').removeClass('hide');
+			}
+		}
+
+		var listener = function() {
+			//登录
+			$('#loginBtn').on('click', function() {
+				App.login();
+			})
+			$('#loginRes').on('click', function() {
+				$('#username').val('');
+				$('#password').val('');
+			})
+			
+			//注销
+			$('#quit').on('click',function(){
+				App.outline();
+			})
+		}
+
+		var main = function() {
+			
+			if(getCookie('id')){
+				App.online();
+			} else {
+				
+				App.outline();
+			}
+			
+			listener();
+		}
+
+		main();
+
+		var showLoading = function() {
+			$('.load-more').css({
+				'display': 'block'
+			})
+			$('.load-btn').css({
+				'display': 'none'
+			})
+		}
+		var hideLoading = function() {
+			$('.load-more').css({
+				'display': 'none'
+			})
+			$('.load-btn').css({
+				'display': 'block'
+			})
+		}
+
+		var hideFirstLoading = function() {
+
+			$('.loading').animate({
+				'opacity': '0.9'
+			}, 700, function() {
+				$('.loading').css({
+					'display': 'none'
+				})
+				$('#content-box').css({
+					'display': 'inline-block'
+				})
+			})
+
+		}
+
+		var a = function() {
+			showLoading();
+			// '' `` 
+			var tpl = `<div class="panel panel-default" data-pn="{%searchNumber%}">
+						<div class="panel-heading">名字:{%title%}</div>
+						<div class="panel-body">
+							号码:{%content%}
+						</div>
+					</div>`;
+
+			var tpl = `<tr data-pn="{%searchNumber%}"><td>名字:{%title%}</td><td>号码:{%content%}</td><td></td></tr>`;
+
+			var fillContent = function(data) {
+				return tpl.replace('{%searchNumber%}', data.phoneNumber).replace('{%title%}', data.name).replace('{%content%}', data.phoneNumber);
+			}
+
+			$.ajax({
+				type: "GET",
+				url: "test.json",
+				data: {},
+				async: true,
+				success: function(data) {
+
+					data = [{
+							phoneNumber: 122413,
+							name: '12213'
+						},
+						{
+							phoneNumber: 122413,
+							name: '12213'
+						}
+					]
+					console.log(data);
+					setTimeout(function() {
+						for(var i = 0; i < data.length; i++) {
+							$('#content-table').append(fillContent(data[i]));
+						}
+						hideLoading();
+					}, 1000);
+					hideFirstLoading();
+				},
+				error: function(error) {
+					console.log('error', error)
+				},
+				complete: function(com) {
+					console.log('complete', com)
+				}
+			})
+		}
+		a();
+		$('#search-input').on('keyup', function(e) {
+			var inputValue = this.value;
+			$('.panel').css('display', 'none');
+			for(var i = 0; i < $(".panel").length; i++) {
+				var pn = $('.panel').eq(i).data('pn').toString();
+				console.log(pn)
+				if(pn.indexOf(inputValue) == -1) {
+
+				} else {
+					$('.panel').eq(i).css('display', 'block');
+				}
+			}
+		})
+		
+		function setCookie( c_name, value, expiredays )
+		{
+			var exdate = new Date()
+			exdate.setDate( exdate.getDate() + expiredays )
+			document.cookie = c_name + "=" + escape( value ) +
+				( ( expiredays == null ) ? "" : ";expires=" + exdate.toGMTString() )
+		}
+
+		function getCookie( c_name )
+		{
+			if ( document.cookie.length > 0 )
+			{
+				c_start = document.cookie.indexOf( c_name + "=" )
+				if ( c_start != -1 )
+				{
+					c_start = c_start + c_name.length + 1
+					c_end = document.cookie.indexOf( ";", c_start )
+					if ( c_end == -1 ) c_end = document.cookie.length
+					return unescape( document.cookie.substring( c_start, c_end ) )
+				}
+			}
+			return ""
+		}
+	</script>
+
+</html>

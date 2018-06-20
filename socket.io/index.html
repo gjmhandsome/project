@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./static/js/react.js"></script>
+    <script src="./static/js/react-dom.js"></script>
+    <script src="./static/js/browser.min.js"></script>
+    
+</head>
+<body>
+      <div id="example"></div>
+      <script type="text/babel">
+      var s="天空";
+      var x=<h3>天空啊</h3>;
+      var arr=[
+          "e","b","c"
+      ]
+      ReactDOM.render(
+          <div>
+             <h1 style={{color:"red"}}> hello world </h1>
+             <h2>hello woeld</h2>
+              {s}
+              {x}
+              {x?'sdf':"empty"}
+              {arr.map(function(item,key){
+                  return <div key={key}>{item}</div>
+              })}   
+          </div>,
+          document.getElementById('example')
+      )
+      </script>
+</body>
+</html>

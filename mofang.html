@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			/*.stage{
+				perspective: 2000px;
+				width:200px ;
+				height: 200px;
+				margin: 0px auto;
+				margin-top: 300px;
+			}*/
+			.box{
+				margin-left: 500px;
+				margin-top: 300px;
+				position: relative;
+				width:200px ;
+				height: 200px;
+				transform-style: preserve-3d;
+				background-color: rgb(0,0,0,0);
+				animation:tate 5s infinite;
+			}
+			.face {
+				position: absolute;
+				width: 200px;
+				height: 200px;
+				border: solid black 1px;
+				background-color: red;
+			
+			}
+			
+			#d1 {
+				transform: rotateX(90deg) translateZ(100px);
+				background-color: green;
+				
+			}
+			#d2 {
+				transform: rotateX(-90deg) translateZ(100px);
+			}
+			#d3 {
+				transform: rotateY(90deg) translateZ(100px);
+			}
+			#d4 {
+				transform: rotateY(-90deg) translateZ(100px);
+			}
+			#d5{
+				transform: translateZ(100px);
+			}
+			#d6{
+				transform:translateZ(-100px) ;
+			}
+			@keyframes tate{
+				from{transform: rotateX(0deg) rotateY(0deg) ;}
+				to{transform: rotateX(90deg) rotateY(90deg);}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="stage">
+			<div class="box">
+				<div class="face" id="d1">
+					
+				</div>
+				<div class="face" id="d2">
+					
+				</div>
+				<div class="face" id="d3">
+					
+				</div>
+				<div class="face" id="d4">
+					
+				</div>
+				<div class="face" id="d5">
+					
+				</div>
+				<div class="face" id="d6">
+					
+				</div>
+			</div>
+		</div>
+		
+	</body>
+	<!--<script src="jquery-2.1.0.js" type="text/javascript " charset="UTF-8"></script>
+	<script type="text/javascript">
+		var rotate=function(e){
+			e/=10;
+			$('.box').css({
+				'transform':'rotateY('+e+'deg)' +'rotateX('+e+'deg)'
+			});
+			
+		}
+		
+		window.addEventListener('mousemove',function(e){
+			console.log(e.screenX);
+			rotate(e.screenX)
+		
+		})	
+	</script>-->
+</html>

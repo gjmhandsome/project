@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			#d1 {
+				background-color: blue;
+			}
+			
+			.d1 {
+				width: 200px;
+				height: 200px;
+				background-color: cadetblue;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="d1" id="d1">
+
+		</div>
+		<div class="d1">
+
+		</div>
+	</body>
+	<!--<script src="js/jquery-2.1.0.js" type="text/javascript" charset="utf-8"></script>-->
+	<script type="text/javascript">
+		var d1 = document.querySelector('.d1')
+		var d2 = document.querySelector('#d1')
+
+		var dd = document.getElementsByClassName('d1')
+
+		var ddd = document.getElementById('d1')
+		//ddd是一个dom对象
+		//对象带有属性和方法
+		//style是dom对象的属性
+		ddd.style.backgroundColor = 'red'
+
+		Number.prototype.getInt = function() {
+			return parseInt(this)
+		}
+
+		//给number类添加了一个原型方法，从而我们可以对所有的Number去执行这个操作
+
+		var q = function(a, b) {
+
+		}
+
+		q(4, 5)
+
+		//		var jq = {
+		//			dom : document.getElementById('d1'),
+		//			changeColor : function(){
+		//				this.dom.style.backgroundColor = 'blue'
+		//				//jq.dom
+		//				return this
+		//			}
+		//		}
+
+		var Jq = function(seletor,context) {
+			return new Jq.fn.init(seletor,context);
+		}
+		
+		//选择器的方法
+		Jq.fn = Jq.prototype = {
+			changeColor: function(color) {
+				this.dom.forEach(function(e) {
+					e.style.backgroundColor = color;
+				})
+				return this;
+			},
+			get: function() {
+				return this.dom;
+			},
+			css: function(key, value) {
+				if(typeof arguments[0] == "string" && arguments.length == 2) {
+					this.dom.forEach(function(e) {
+						e.style[key] = value;
+					})
+				}
+				if(typeof arguments[0] == "object" && arguments.length == 1) {
+					for(var property in arguments[0]) {
+						this.dom.forEach(function(e) {
+							e.style[property] = arguments[0][property];
+						})
+					}
+				}
+				return this;
+			},
+			eq: function(index) {
+				return Jq(this.dom[index],this.selector);
+			},
+			attr :function(){
+				this.css.call()
+				return this;
+			}
+		}
+		
+		
+		var init = Jq.fn.init = function(seletor, context) {
+			
+			if(seletor == undefined) return;
+			
+			this.dom = [];
+
+			if(typeof seletor == "object") {
+				this.dom.push(seletor);
+				this.selector = context;
+				return;
+			}
+
+			var dom;
+
+			var getName = function(aaa) {
+				var str = '';
+				for(var i = 0; i < aaa.length; i++) {
+					if(i == 0) continue;
+					str += aaa[i];
+				}
+				return str;
+			}
+
+			if(seletor[0] == '#') {
+				dom = document.getElementById(getName(seletor));
+				this.dom.push(dom);
+			} else if(seletor[0] == '.') {
+				dom = document.getElementsByClassName(getName(seletor));
+				for(var i = 0; i < dom.length; i++) {
+					this.dom.push(dom[i]);
+				}
+			} else {
+				dom = document.getElementsByTagName(seletor);
+				for(var i = 0; i < dom.length; i++) {
+					this.dom.push(dom[i]);
+				}
+			}
+
+			this.selector = seletor;
+		}
+
+		init.prototype = Jq.fn;
+
+		Jq.extend = Jq.prototype.extend = function(){
+			if(arguments.length !== 1 || typeof arguments[0] !== "object") {
+				return ;
+			}
+			var parameter = arguments[0];
+			for (var property in parameter) {
+				this[property] = parameter[property];
+			}
+		}
+
+		var Book = function(name, author) {
+			this.name = name
+			this.author = author
+			this.sayName = function() {
+				return console.log(this.name + this.author)
+			}
+		}
+
+		var xyj = new Book('西游记', '吴承恩')
+		var hlm = new Book('红楼梦', '曹雪芹')
+
+		//		var $ = function(selector){
+		//			console.log(selector)
+		//		}
+		
+		Jq.prototype.extend({
+			duang :function(){
+				console.log("我在duang呢，别说话");
+				return this;
+			}
+		})
+		
+		Jq.extend({
+			ajax: function(options){
+				if(arguments.length !== 1 && typeof options !== "object") return this;
+			}
+		})
+		
+		window.$ = Jq;
+	</script>
+
+</html>
