@@ -1,0 +1,98 @@
+page{  
+  height: 100%;  
+}  
+
+.content {
+  width: 100%;
+  height: 100%;
+}
+.bianji{
+  display: inline-block;
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  left:200rpx;
+  top:25rpx;
+}
+.cv_1{
+  width: 100%;
+  height: 20%;
+}
+.cv_2{
+  width: 100%;
+  height: 20%;
+  margin-top: 10rpx
+}
+.cv_3{
+  width: 100%;
+  height: 20%;
+  margin-top: 10rpx;
+}
+.cv_4{
+  width: 100%;
+  height: 20%;
+  margin-top: 10rpx;
+}
+.cv_11{
+  display: block; 
+  font-size: 70rpx
+}
+.cv_12{
+  display: block;
+}
+.phone_img {
+  width: 40rpx;
+  height: 40rpx;
+  left: 10rpx;
+  position: absolute;
+}
+.cv_13{
+  display:block;
+  margin-left: 60rpx;
+}
+.emil_img {
+  width: 40rpx;
+  height: 40rpx;
+   left: 10rpx;
+  position: absolute;
+}
+.cv_14{
+  display: block;
+  margin-left: 60rpx;
+}
+.cv_15{
+  display:block;
+  font-size: 50rpx 
+}
+.cv_16{
+  display: block;
+  margin-top: 10rpx;
+}
+.cv_17{
+  display: block;
+  margin-top: 10rpx;
+}
+.cv_18{
+  display:block;
+  font-size: 50rpx 
+}
+.cv_19{
+  display: block;
+  margin-top: 10rpx;
+}
+.cv_110{
+  display:block;
+  font-size: 50rpx 
+}
+.cv_111{
+  display: block;
+  margin-top: 10rpx;
+}
+.cv_112{
+  display: block;
+  margin-top: 10rpx;
+}
+.cv_113{
+  display: block;
+  margin-top: 10rpx;
+}

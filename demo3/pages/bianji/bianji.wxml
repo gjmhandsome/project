@@ -1,0 +1,42 @@
+<view class='content'>
+   <view class='content_1'>
+      <view class='content_11'>姓名</view><input class='content_12' value='{{name}}' bindinput='nameInput'></input>
+   </view>
+    <view class='content_1'>
+      <view class='content_11'>性别</view><input class='content_12' value='{{sex}}' bindinput='sexInput'></input>
+   </view>
+   <view class='content_1'>
+      <view class='content_11'>年龄</view><input class='content_12' value='{{age}}' bindinput='yearInput'></input>
+   </view>
+    <view class='content_1'>
+      <view class='content_11'>地址</view><input class='content_12' value='{{adress}}' bindinput='adressInput'></input>
+   </view>
+   <view class='content_1'>
+      <view class='content_11'>手机号</view><input class='content_12' value='{{phone}}' bindinput='phoneInput'></input>
+   </view>
+    <view class='content_1'>
+      <view class='content_11'>邮箱</view><input class='content_12' value='{{emil}}' bindinput='emilInput'></input>
+   </view>
+    <view class='content_1'>
+      <view class='content_11'>意愿工作地址</view><input class='content_12' value='{{job_adress}}' bindinput='job_adressInput'></input>
+   </view>
+   <view class='content_1'>
+      <view class='content_11'>意愿职位</view><input class='content_12' value='{{job}}' bindinput='jobInput'></input>
+   </view>
+    <view class='content_1'>
+      <view class='content_11'>工作经历</view><input class='content_12' value='{{job_ep}}' bindinput='job_epInput'></input>
+   </view>
+   <view class='content_1'>
+      <view class='content_11'>毕业学校</view><input class='content_12' value='{{school}}' bindinput='schoolInput'></input>
+   </view>
+   <view class='content_1'>
+      <view class='content_11'>学历</view><input class='content_12' value='{{xueli}}' bindinput='xueliInput'></input>
+   </view>
+   <view class='content_1'>
+      <view class='content_11'>专业</view><input class='content_12' value='{{zhuanye}}' bindinput='zhuanyeInput'></input>
+   </view>
+   <view class='content_1'>
+      <view class='content_11'>毕业时间</view><input class='content_12' value='{{time}}' bindinput='timeInput'></input>
+   </view>
+   <button class='content_2' bindtap='save'>保存</button>
+</view>

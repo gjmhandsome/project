@@ -1,0 +1,13 @@
+
+<view class='content'>
+    <text class='content1'>{{company_name}}</text>
+    <view class='mine_1'>
+        <view class='mine_11' bindtap='tosend_job'><image src='/images/fabujob.png' class='mine_1_img'></image><text class='mine_12'>发布职位</text><text class='mine_13'>></text></view>
+    </view>
+    <view class='mine_2'>
+        <view class='mine_21' bindtap='tosee_job'><image src='/images/tougang.png' class='mine_2_img'></image><text class='mine_22'>查看投岗</text><text class='mine_23'>></text></view>
+    </view>
+    <view class='mine_3'>
+        <button bindtap='exit'>退出</button>
+    </view>
+</view>

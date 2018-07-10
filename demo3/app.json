@@ -1,0 +1,61 @@
+{
+  "pages":[
+      
+      "pages/user/user",
+      "pages/user2/user2",
+      "pages/cv/cv",
+      "pages/bianji/bianji",
+      "pages/mine/mine",
+      "pages/mine_1/mine_1",
+      "pages/company/company",
+      "pages/login/login",
+      "pages/qy_login/qy_login",
+      "pages/enterprise/enterprise",
+      "pages/sendjob/sendjob",
+      "pages/seejob/seejob",   
+      "pages/map/map",
+      "pages/suggestion/suggestion",
+      "pages/weather/weather"
+
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+        "color": "#a9b7b7",
+        "selectedColor": "#11cd6e",
+        "borderStyle": "black",
+       "list": [
+      {
+             "selectedIconPath": "images/zhuye11.png",
+             "iconPath": "images/zhuye1.png",
+            "pagePath": "pages/user/user",
+             "text": "首页"  
+
+      },
+      {
+        "selectedIconPath": "images/qiye11.png",
+        "iconPath": "images/qiye1.png",
+        "pagePath": "pages/user2/user2",
+        "text": "招聘"
+      },
+      {
+             "selectedIconPath": "images/jianli11.png",
+             "iconPath": "images/jianli1.png",
+             "pagePath": "pages/cv/cv",
+             "text": "简历"  
+      },
+      {
+             "selectedIconPath": "images/mine11.png",
+             "iconPath": "images/mine1.png",
+             "pagePath": "pages/mine/mine",
+             "text": "我的"  
+      }
+      ]  
+  }
+
+  
+}

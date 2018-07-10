@@ -1,0 +1,190 @@
+<view class='container'>
+    <image class='userbg' src='/images/userbg.jpg'></image>
+    <view class='nav1'> 
+         <image class='nav1_1' src='/images/sd.png'></image>
+         
+              <icon class='nav1_find' type='search' size='40'></icon>
+              <input class='nav1_2'></input>
+          
+         <button class='nav1_3' bindtap='dl'>{{status}}</button>
+    </view>
+    <view class='content'>
+          <view class='content_1'>
+              <view class='nav2'>
+                  <view class='nav2_1'  bindtap='IT_show'>IT</view>
+                  <view class='nav2_1'  bindtap='JR_show'>金融</view>
+                  <view class='nav2_1' bindtap='FDC_show'>房地产</view>
+                  <view class='nav2_1' bindtap='XFP_show'>消费品</view>
+              </view>
+              <view class='clean'></view>
+              <view class='nav2_job'>
+                  <view class='nav2_IT' style="display:{{IT_hidden}}">
+                      <view class='job1_1 fl'>
+                           <image src='/images/ali.png' class='job1_1_img' bindtap='Tocompany'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                                   {{job1}}
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/tx.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                                   {{job2}}
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/name.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                                   {{job3}}
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/name.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                                   {{job4}}
+                           </text>
+                      </view>
+                  </view>
+                  <view class='nav2_JR' style="display:{{JR_hidden}}">
+                      <view class='job1_1 fl'>
+                           <image src='/images/jr.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/jr.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/jr.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/jr.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                  </view>
+                  <view class='nav2_FDC' style="display:{{FDC_hidden}}">
+                      <view class='job1_1 fl'>
+                           <image src='/images/FDC.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/FDC.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/FDC.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/FDC.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                  </view>
+                  <view class='nav2_XFP' style="display:{{XFP_hidden}}">
+                      <view class='job1_1 fl'>
+                           <image src='/images/name.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/name.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/name.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                      <view class='job1_1 fl'>
+                           <image src='/images/name.png' class='job1_1_img'></image>
+                           <text class='job1_1_text'>
+                                   前端工程师
+                                   java开发师
+                                   sdf
+                                   sdf
+                           </text>
+                      </view>
+                  </view>
+              </view>
+            
+          </view>
+          <view class='content_2'>
+              <view class='jt_right' bindtap='to_right'>{{jt_right}}</view>
+              <view class='jt_left' bindtap='to_left'>{{jt_left}}</view>     
+          </view>
+    </view>
+    <view class='bottom'>
+               <view class='bottom1 bottom1_1 ' bindtap="return_map"><span>地图</span></view>
+              <view class='bottom1 bottom1_2' bindtap='return_weather'><span>天气</span></view>
+              
+    </view>
+</view>

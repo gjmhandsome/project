@@ -1,0 +1,10 @@
+<scroll-view scroll-y="true" class='scroll_content'  bindscrolltolower="loadingmore" style=''>
+<view class='line'></view>
+    <view wx:for="{{content}}" class='content' wx:key="key" wx:if="{{index<count}}" bindtap="tocompany">
+       <view class='content1'>{{item.job}}</view><view class='content2'>{{item.wages}}</view>
+       <view class='content3'>{{item.company}}</view>
+    </view>
+    
+</scroll-view>
+<view class="loading" hidden="{{!Loading}}">正在载入更多...</view>
+<view class="loading complete" hidden="{{!Complete}}">已加载全部</view>

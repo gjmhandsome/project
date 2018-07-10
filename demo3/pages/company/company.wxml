@@ -1,0 +1,35 @@
+<view class='content'>
+    <view class='content1'>
+        <view class='content1_1'><span class="content1_11" bindtap="show_job">职位详情</span></view>
+        <view class='content1_2'><span class="content1_12" bindtap="show_company">公司详情</span></view>
+    </view>
+    <view class='job_details' style='display:{{job_details}}'>
+     <view class='content2'>
+        <view class='content2_1'>{{content.job_name}}<span class="content2_11">{{content.wages}}</span></view>
+        <view class='content2_2'>
+            <span class="content2_21"><image class='content2_22' src='/images/year.png'></image>{{content.year}}</span>
+            <span class="content2_23"><image class='content2_24'  src='/images/education.png'></image>{{content.education}}</span>
+            <span class="content2_25"><image class='content2_26'  src='/images/leixing.png'></image>{{content.leixing}}</span>
+        </view>
+        <view class='content2_3'>
+         <image src='/images/location.png' class='content2_31'></image>
+           {{content.adress}}
+        </view>
+     </view>
+     <view class='content3'>
+        <text class='content3_1'>职位描述</text>
+        <view class='content3_2'>{{content.job_introduce}}</view>
+     </view>
+     <view class='content4'>
+        <button bindtap='deliver'>投递简历</button>
+     </view>
+    </view>
+    <view class='company_details' style='display:{{company_details}}' >
+        <text class='company_name'>{{content.company_name}}</text>
+        
+        <view class='company_controduce'>
+            <text class='company_1'>公司介绍</text>
+            <view class='company_2'>{{content.company_controduce}}</view>
+        </view>
+    </view>
+</view>

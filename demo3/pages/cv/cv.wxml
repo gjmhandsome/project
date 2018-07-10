@@ -1,0 +1,27 @@
+<view class='content'>
+<image src='/images/bianji.png' class='bianji' bindtap='tobianji'></image>
+    <view class='cv_1'>
+        <text class='cv_11'>{{content.name}}</text>
+        <text class='cv_12'>{{content.sex}}/{{content.age}}/{{content.adress}}</text>
+        <view><image src='/images/phone.png' class='phone_img'></image><text class='cv_13'>{{content.phone}}</text></view>
+        <image src='/images/emil.png' class='emil_img'></image><text class='cv_14'>{{content.emil}}</text>
+    </view>
+    <text>.................................................................................</text>
+    <view class='cv_2'>
+        <text class='cv_15'>求职意向</text>
+        <text class='cv_16'>地点：{{content.job_adress}}</text>
+        <text class='cv_17'>职位：{{content.job}}</text>
+    </view>
+    <text>.................................................................................</text>
+    <view class='cv_3'>
+        <text class='cv_18'>工作经历</text>
+        <text class='cv_19'>{{content.job_ep}}</text>
+    </view>
+    <text>.................................................................................</text>
+    <view class='cv_4'>
+        <text class='cv_110'>教育经历</text>
+        <text class='cv_111'>{{content.school}}</text>
+        <text class='cv_112'>{{content.xueli}}/{{content.zhuanye}}</text>
+        <text class='cv_113'>{{content.time}}毕业</text>
+    </view>
+</view>

@@ -1,0 +1,8 @@
+<view class='content'>
+   <view class='content1'>
+       <text class='content1_1'>已投递职位：</text>
+      <view wx:for="{{company_job}}" class='content1_2'>
+          {{index+1}}: {{item.company}}   {{item.job}}   {{item.status}}
+      </view>
+   </view>
+</view>
